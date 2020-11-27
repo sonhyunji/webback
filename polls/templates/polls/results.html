@@ -1,0 +1,16 @@
+<h1>{{ question.question_text }}</h1>
+<hr />
+<ul>
+{% for choice in question.choice_set.all %}
+    {% if choice.votes == 1 %}
+        <h2>{{ choice.choice_text }} 을 선택한 당신!</h2>
+        <br />
+        {% for contents in question.contents_set.all %}
+            <p>{{ contents.contents_text }}</p>
+        {% endfor %}
+    {% else %}
+    {% endif %}
+{% endfor %}
+</ul>
+
+<a href="http://127.0.0.1:8000/polls">메인으로 돌아가기</a>
